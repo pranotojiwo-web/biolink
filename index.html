@@ -3,44 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Selasar Ritus & Langgam</title>
+
   <style>
     :root {
       --dark-grey: #212933;
       --accent: #ba542c;
+      --border: #e5e0d8;
+      --background: #f8f5f1;
+      --white: #ffffff;
+      --muted-text: #555;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
+
       max-width: 620px;
       margin: 40px auto;
       padding: 0 20px;
+
       line-height: 1.7;
       color: var(--dark-grey);
-      background: #f8f5f1;
+      background: var(--background);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .header { 
-      text-align: center; 
-      margin-bottom: 45px; 
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      text-align: center;
+      margin-bottom: 45px;
     }
-    .header h1 { 
-      font-size: 28px; 
-      margin: 0 0 8px 0; 
-      color: #1a1f2e; 
+
+    .header h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+      color: #1a1f2e;
     }
-    .header .tagline { 
-      font-size: 17px; 
-      color: #555; 
+
+    .header .tagline {
+      font-size: 17px;
+      color: var(--muted-text);
       font-weight: 500;
     }
 
+    /* =========================
+       SECTION
+    ========================= */
+
     .section-title {
       font-size: 17px;
-      margin: 40px 0 16px 0;
+      margin: 40px 0 16px;
       color: #1a1f2e;
       font-weight: 600;
     }
 
-    .rl-donasi-grid {
+    /* =========================
+       GRID
+    ========================= */
+
+    .rl-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
@@ -54,27 +91,43 @@
       margin-bottom: 30px;
     }
 
-    /* Style Tombol Utama */
+    /* =========================
+       BUTTON
+    ========================= */
+
     .rl-btn-hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding: 14px 18px;
+
       text-decoration: none;
       border-radius: 6px;
-      border: 1px solid #e5e0d8;
-      background: #fff;
+      border: 1px solid var(--border);
+
+      background: var(--white);
       color: var(--dark-grey) !important;
-      transition: all 0.3s ease;
-      font-weight: bold;
+
       font-size: 15.5px;
+      font-weight: 700;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     }
 
     .rl-btn-hero:hover {
       background: var(--accent);
-      color: white !important;
+      color: var(--white) !important;
+
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(186, 84, 44, 0.25);
+
+      box-shadow:
+        0 6px 15px rgba(186, 84, 44, 0.25);
     }
 
     .rl-btn-content {
@@ -83,147 +136,376 @@
       gap: 12px;
     }
 
-    /* Icon Style */
+    /* =========================
+       ICON
+    ========================= */
+
     .rl-icon-svg-grad {
       width: 20px;
       height: 20px;
-      fill: #ba542c;
+
+      fill: var(--accent);
+
       flex-shrink: 0;
-      transition: fill 0.3s ease;
+
+      transition:
+        fill 0.3s ease;
     }
 
     .rl-btn-hero:hover .rl-icon-svg-grad {
-      fill: white;
+      fill: var(--white);
     }
 
-    /* === POLICY BOX - DENGAN HOVER EFFECT === */
+    /* =========================
+       CONTACT INTRO
+    ========================= */
+
+    .rl-contact-intro {
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    /* =========================
+       STATIC CARD
+    ========================= */
+
+    .rl-static-card {
+      cursor: default;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       POLICY BOX
+    ========================= */
+
     .rl-policy-box {
       display: flex;
       align-items: flex-start;
-      padding: 16px 18px;
-      border: 1px solid #e5e0d8;
-      background: #fff;
-      border-radius: 6px;
-      color: var(--dark-grey);
-      font-weight: normal;
-      cursor: default;
       gap: 12px;
-      transition: all 0.3s ease;
+
+      padding: 16px 18px;
+
+      border: 1px solid var(--border);
+      border-radius: 6px;
+
+      background: var(--white);
+      color: var(--dark-grey);
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .rl-policy-box:hover {
-      background: #f8f5f1;
+      background: var(--background);
       border-color: #d4c9b8;
+
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(186, 84, 44, 0.12);
+
+      box-shadow:
+        0 4px 12px rgba(186, 84, 44, 0.12);
+    }
+
+    .rl-policy-icon {
+      font-size: 22px;
+      margin-top: 2px;
+      flex-shrink: 0;
     }
 
     .rl-text-policy {
-      line-height: 1.65;
       font-size: 14.8px;
+      line-height: 1.65;
     }
 
-    @media (max-width: 480px) {
-      .rl-contact-grid { grid-template-columns: 1fr; }
-    }
-    
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       text-align: center;
       font-size: 13px;
       color: #777;
+
       margin-top: 60px;
+      padding-top: 20px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 480px) {
+
+      .rl-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
     }
   </style>
 </head>
+
 <body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <div class="header">
     <h1>Ritus &amp; Langgam</h1>
-    <p class="tagline">Tempat Keresahan Menemukan Bentuknya</p>
+    <p class="tagline">
+      Tempat Keresahan Menemukan Bentuknya
+    </p>
   </div>
 
-  <h2 class="section-title">🪶 Jelajahi Selasar</h2>
-  <div class="rl-donasi-grid">
-    <a href="https://www.rituslanggam.com/p/tentang-kami.html" class="rl-btn-hero" target="_blank">
-      <span>Tentang Kami</span><span>↗</span>
+  <!-- =========================
+       SELASAR
+  ========================== -->
+
+  <h2 class="section-title">
+    🪶 Jelajahi Selasar
+  </h2>
+
+  <div class="rl-grid">
+
+    <a
+      href="https://www.rituslanggam.com/p/tentang-kami.html"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Tentang Kami</span>
+      <span>↗</span>
     </a>
-    <a href="https://www.rituslanggam.com/search/label/Ritus" class="rl-btn-hero" target="_blank">
-      <span>Rubrik Ritus</span><span>↗</span>
+
+    <a
+      href="https://www.rituslanggam.com/search/label/Ritus"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Rubrik Ritus</span>
+      <span>↗</span>
     </a>
-    <a href="https://www.rituslanggam.com/search/label/Langgam" class="rl-btn-hero" target="_blank">
-      <span>Rubrik Langgam</span><span>↗</span>
+
+    <a
+      href="https://www.rituslanggam.com/search/label/Langgam"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Rubrik Langgam</span>
+      <span>↗</span>
     </a>
-    <a href="https://www.rituslanggam.com/search/label/Diorama" class="rl-btn-hero" target="_blank">
-      <span>Rubrik Diorama</span><span>↗</span>
+
+    <a
+      href="https://www.rituslanggam.com/search/label/Diorama"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Rubrik Diorama</span>
+      <span>↗</span>
     </a>
+
   </div>
 
-  <h2 class="section-title">📬 Kontak &amp; Kerjasama</h2>
-  <div style="margin-bottom: 25px; color:#444;">
-    <p>Silakan hubungi kami untuk mendiskusikan rencana kerja sama profesional, proyek editorial, atau kemitraan strategis lainnya.</p>
+  <!-- =========================
+       KONTAK
+  ========================== -->
+
+  <h2 class="section-title">
+    📬 Kontak &amp; Kerjasama
+  </h2>
+
+  <div class="rl-contact-intro">
+    <p>
+      Silakan hubungi kami untuk mendiskusikan
+      rencana kerja sama profesional,
+      proyek editorial,
+      atau kemitraan strategis lainnya.
+    </p>
   </div>
 
-  <div class='rl-contact-grid'>
-    <a href='https://wa.me/6281938241801?text=Halo%20Ritus%20%26%20Langgam%2C%20saya%20ingin%20mengajukan%20penawaran%20kerja%20sama%20profesional.' class='rl-btn-hero' target='_blank'>
-      <div class='rl-btn-content'>
-        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.006c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <div class="rl-contact-grid">
+
+    <!-- WHATSAPP -->
+
+    <a
+      href="https://wa.me/6281938241801?text=Halo%20Ritus%20%26%20Langgam%2C%20saya%20ingin%20mengajukan%20penawaran%20kerja%20sama%20profesional."
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="rl-btn-content">
+
+        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"></path>
+        </svg>
+
         <span>WhatsApp Bisnis</span>
+
       </div>
-      <span class='rl-btn-arrow'>↗</span>
+
+      <span>↗</span>
+
     </a>
 
-    <a href='mailto:halo.rituslanggam@gmail.com' class='rl-btn-hero' target='_blank'>
-      <div class='rl-btn-content'>
-        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span>Email Kerja Sama</span>
+    <!-- EMAIL -->
+
+    <a
+      href="mailto:halo.rituslanggam@gmail.com"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="rl-btn-content">
+
+        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+        </svg>
+
+        <span>Email Kerjasama</span>
+
       </div>
-      <span class='rl-btn-arrow'>↗</span>
+
+      <span>↗</span>
+
     </a>
 
-    <a href='https://substack.com/@pranotojiwo' class='rl-btn-hero' target='_blank'>
-      <div class='rl-btn-content'>
-        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <!-- SUBSTACK -->
+
+    <a
+      href="https://substack.com/@pranotojiwo"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="rl-btn-content">
+
+        <svg class="rl-icon-svg-grad" viewBox="0 0 24 24">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+        </svg>
+
         <span>Berlangganan</span>
+
       </div>
-      <span class='rl-btn-arrow'>↗</span>
+
+      <span>↗</span>
+
     </a>
 
-    <div class='rl-btn-hero' style="cursor:default; opacity:0.9;">
-      <div class='rl-btn-content'>
-        <span style="font-size:19px; transition: color 0.3s;">⏳</span>
+    <!-- JAM KERJA -->
+
+    <div class="rl-btn-hero rl-static-card">
+
+      <div class="rl-btn-content">
+        <span style="font-size:19px;">⏳</span>
         <span>Senin – Jumat (09.00 - 20.00)</span>
       </div>
+
     </div>
+
   </div>
 
-  <!-- Policy Section dengan Hover -->
-  <div class="rl-donasi-grid" style="margin-top: 10px;">
+  <!-- =========================
+       POLICY
+  ========================== -->
+
+  <div class="rl-grid" style="margin-top:10px;">
+
     <div class="rl-policy-box">
-      <span style="font-size:22px; margin-top:2px;">ℹ️</span>
-      <span class="rl-text-policy">Kami mengutamakan komunikasi yang jelas dan substantif. Mohon gunakan kanal yang sesuai agar korespondensi berjalan lancar.</span>
-    </div>
-    <div class="rl-policy-box">
-      <span style="font-size:22px; margin-top:2px;">⚠️</span>
-      <span class="rl-text-policy">
-        <strong style="color:#E00000">PENTING:</strong> Kami saat ini hanya melayani korespondensi terkait penawaran kerja sama profesional. Untuk diskusi naskah, silakan gunakan kolom komentar.
+
+      <span class="rl-policy-icon">
+        ℹ️
       </span>
+
+      <span class="rl-text-policy">
+        Kami mengutamakan komunikasi yang jelas
+        dan substantif.
+        Mohon gunakan kanal yang sesuai agar
+        korespondensi berjalan lancar.
+      </span>
+
     </div>
+
+    <div class="rl-policy-box">
+
+      <span class="rl-policy-icon">
+        ⚠️
+      </span>
+
+      <span class="rl-text-policy">
+        <strong style="color:#E00000">
+          PENTING:
+        </strong>
+
+        Kami saat ini hanya melayani
+        korespondensi terkait penawaran
+        kerjasama profesional.
+        Untuk diskusi naskah,
+        silakan gunakan kolom komentar atau lihat bagian Layanan.
+      </span>
+
+    </div>
+
   </div>
 
-  <h2 class="section-title">📋 Dukungan & Panduan</h2>
-  <div class="rl-donasi-grid">
-    <a href="https://www.rituslanggam.com/p/panduan-pembaca-pengunjung.html" class="rl-btn-hero" target="_blank">
-      <span>Panduan Pembaca &amp; Pengunjung</span><span>↗</span>
+  <!-- =========================
+       DUKUNGAN
+  ========================== -->
+
+  <h2 class="section-title">
+    📋 Dukungan &amp; Panduan
+  </h2>
+
+  <div class="rl-grid">
+
+    <a
+      href="https://www.rituslanggam.com/p/panduan-pembaca-pengunjung.html"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Panduan Pembaca &amp; Pengunjung</span>
+      <span>↗</span>
     </a>
-    <a href="https://www.rituslanggam.com/p/Layanan.html" class="rl-btn-hero" target="_blank">
-      <span>Layanan &amp; Kerja Sama</span><span>↗</span>
+
+    <a
+      href="https://www.rituslanggam.com/p/Layanan.html"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Layanan</span>
+      <span>↗</span>
     </a>
-    <a href="https://www.rituslanggam.com/p/menjaga-kemandirian-selasar-ritus.html" class="rl-btn-hero" target="_blank">
-      <span>Donasi / Dukungan</span><span>↗</span>
+
+    <a
+      href="https://www.rituslanggam.com/p/menjaga-kemandirian-selasar-ritus.html"
+      class="rl-btn-hero"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Donasi / Dukungan</span>
+      <span>↗</span>
     </a>
+
   </div>
-<footer>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
     © Ritus &amp; Langgam • Pranoto Jiwo
   </footer>
+
 </body>
 </html>
